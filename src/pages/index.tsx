@@ -44,31 +44,6 @@ const BarcodeGenerator = () => {
         <canvas id="barcode" ref={barcodeRef} />
         {inputNumber && <p className="message">Generated barcode for: {inputNumber}</p>}
       </main>
-
-      <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-        .container {
-          font-family: 'Roboto', sans-serif;
-        }
-
-        main {
-          max-width: 600px;
-          margin: 0 auto;
-        }
-
-        input {
-          width: 50%;
-          box-sizing: border-box;
-        }
-      `}</style>
-
-      <style jsx global>{`
-
-        button:hover {
-          background-color: #D9A243;
-        }
-      `}</style>
     </div>
   );
 };
