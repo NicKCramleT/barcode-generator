@@ -1,10 +1,14 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Head from 'next/head';
 import JsBarcode from 'jsbarcode';
 
 const BarcodeGenerator = () => {
   const [inputNumber, setInputNumber] = useState<string>('');
   const barcodeRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    generateBarcode();
+  }, [inputNumber]);
 
   const generateBarcode = () => {
     try {
@@ -35,7 +39,7 @@ const BarcodeGenerator = () => {
           onChange={handleInputChange}
           placeholder="Enter a number"
         />
-        <button onClick={generateBarcode}>Generate Barcode</button>
+        
         <br /><br />
         <canvas id="barcode" ref={barcodeRef} />
         {inputNumber && <p className="message">Generated barcode for: {inputNumber}</p>}
